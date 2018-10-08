@@ -52,7 +52,7 @@ const Command = {
           ahead = status.ahead ? ` ${status.ahead}↑` : '',
           behind = status.behind ? ` ${status.behind}↓` : '',
           repositoryPath = false ? ` ${tildify ( repository )}` : '', // Disabled
-          title = `${chalk.cyan ( name )} ${chalk.magenta ( branch )}${chalk.red ( dirty )}${chalk.yellow ( ahead )}${chalk.yellow ( behind )}${chalk.gray ( repositoryPath ) }`;
+          title = `${chalk.cyan ( name )} ${chalk.magenta ( branch )}${chalk.yellow ( dirty )}${chalk.yellow ( ahead )}${chalk.yellow ( behind )}${chalk.gray ( repositoryPath ) }`;
 
     return title;
 
