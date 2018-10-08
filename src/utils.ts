@@ -36,9 +36,7 @@ const Utils = {
     },
 
     isIncluded ( filePath: string, include: string[], exclude: string[] ) {
-      if ( filePath.includes ( 'dropbox' ) ) {
-        console.log ( arguments );
-      }
+
       return !!Utils.path.getIncluded ( [filePath], include, exclude ).length;
 
     }
