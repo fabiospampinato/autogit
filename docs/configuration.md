@@ -9,6 +9,7 @@ It could look like this:
 const githubSync = require ( 'autogit-command-github-sync' );
 const readmeAutocommit = require ( 'autogit-command-readme-autocommit' );
 const gitignore = require ( 'autogit-plugin-gitignore' );
+const push = require ( 'autogit-plugin-push' );
 
 module.exports = {
   dry: true, // Enable dry mode by default, where plugins only simulate doing the work
