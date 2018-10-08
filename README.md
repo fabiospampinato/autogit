@@ -22,11 +22,15 @@ npm install -g @fabiospampinato/autogit
 
 #### Wizard
 
-//TODO
+<p align="center">
+	<img src="resources/demo/wizard.gif" alt="Wizard" style="width:816px">
+</p>
 
 #### Command
 
-//TODO
+<p align="center">
+	<img src="resources/demo/github_sync.gif" alt="GitHub Sync" style="width:816px">
+</p>
 
 #### Custom Commands
 
