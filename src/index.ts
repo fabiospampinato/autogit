@@ -16,6 +16,8 @@ async function autogit ( commandName?, repositories? ) {
 
     try {
 
+      if ( command._tasks.every ( task => task._enabledFn && !task._enabledFn ( repository, {} ) ) ) continue; // Don't printing anything if disabled
+
       await command.run ();
 
     } catch ( err ) {
