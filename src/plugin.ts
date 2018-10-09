@@ -40,7 +40,10 @@ const Plugin = {
     return Utils.listr.patch ( new Listr ([{
       title: `shell ${chalk.gray ( plugin )}`,
       skip: () => Config.dry,
-      task: () => execa.shell ( plugin, { cwd: repository } )
+      task: async ( ctx, task ) => {
+        const {stdout} = await execa.shell ( `${plugin} && exit 0`, { cwd: repository } );
+        task.output = stdout;
+      }
     }]));
 
   }
