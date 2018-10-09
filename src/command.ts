@@ -28,14 +28,10 @@ const Command = {
 
     plugins = plugins.map ( plugin => Plugin.parse ( plugin, repository ) );
 
-    const title = await Command.getTitle ( repository ),
-          enabled = command.enabled || _.constant ( true ),
-          skip = command.skip || _.constant ( false );
-
     return Utils.listr.patch ( new Listr ([{
-      title,
-      enabled,
-      skip,
+      title: await Command.getTitle ( repository ),
+      enabled: command.enabled ? ctx => command.enabled ( repository, ctx ) : _.constant ( true ),
+      skip: command.skip ? ctx => command.skip ( repository, ctx ) : _.constant ( false ),
       task: () => Utils.listr.patch ( compose ( ...plugins ) )
     }]));
 
