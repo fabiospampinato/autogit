@@ -1,3 +1,6 @@
+---
+title: Home
+---
 
 # Autogit
 
@@ -23,18 +26,18 @@ npm install -g @fabiospampinato/autogit
 #### Wizard
 
 <p align="center">
-	<img src="docs/resources/demo/wizard.gif" alt="Wizard" style="width:816px">
+	<img src="./resources/demo/wizard.gif" alt="Wizard" style="width:816px">
 </p>
 
 #### Command
 
 <p align="center">
-	<img src="docs/resources/demo/github_sync.gif" alt="GitHub Sync" style="width:816px">
+	<img src="./resources/demo/github_sync.gif" alt="GitHub Sync" style="width:816px">
 </p>
 
 #### Custom Commands
 
-You can define custom commands via the [configuration](/docs/configuration.md).
+You can define custom commands via the [configuration](/configuration.md).
 
 You can find most of the commands and plugins made by the community in the [awesome-autogit](https://github.com/fabiospampinato/awesome-autogit) repository.
 
