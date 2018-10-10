@@ -32,7 +32,7 @@
     "plugins"
   ],
   "dependencies": {
-    "autogit-command-shell": "^1.0.0",
+    "autogit-command-shell": "^1.0.1",
     "autogit-command-status": "^1.0.0",
     "caporal": "git://github.com/fabiospampinato/Caporal.js#cf0f5eeefb2e04cc07798bf4a45d6bda5e2a2f63",
     "chalk": "^2.4.1",
