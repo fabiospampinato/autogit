@@ -11,6 +11,7 @@
     "compile:watch": "tsc --skipLibCheck --watch",
     "lint": "tslint \"src/**/*.ts*\" --force",
     "prepublish": "npm run clean && npm run lint && npm run compile",
+    "postpublish": "npm run docs:release",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "docs:push": "push-dir --dir=docs/.vuepress/dist --branch=gh-pages",
