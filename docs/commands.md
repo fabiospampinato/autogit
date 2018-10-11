@@ -5,7 +5,7 @@ Commands are a powerful way to encapsulate and share complex functionalities in 
 
 ## Usage
 
-Commands can be execuded like this:
+Commands can be executed like this:
 
 ```sh
 autogit <command-name>
