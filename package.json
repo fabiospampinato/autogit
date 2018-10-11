@@ -10,7 +10,11 @@
     "compile": "tsc --skipLibCheck",
     "compile:watch": "tsc --skipLibCheck --watch",
     "lint": "tslint \"src/**/*.ts*\" --force",
-    "prepublish": "npm run clean && npm run lint && npm run compile"
+    "prepublish": "npm run clean && npm run lint && npm run compile",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:push": "push-dir --dir=docs/.vuepress/dist --branch=gh-pages",
+    "docs:release": "npm run docs:build && npm run docs:push"
   },
   "bugs": {
     "url": "https://github.com/fabiospampinato/autogit/issues"
@@ -56,8 +60,10 @@
   },
   "devDependencies": {
     "@types/node": "^10.9.4",
+    "push-dir": "^0.4.1",
     "rimraf": "^2.6.0",
     "tslint": "^4.4.2",
-    "typescript": "^3.0.3"
+    "typescript": "^3.0.3",
+    "vuepress": "^0.14.4"
   }
 }

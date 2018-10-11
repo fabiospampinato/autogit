@@ -13,13 +13,13 @@ autogit <command-name>
 
 ## Definition
 
-Commands are defined via the [configuration](/docs/configuration.md).
+Commands are defined via the [configuration](/configuration.md).
 
 There are multiple ways to write commands:
 
 #### Array of Plugins
 
-Learn about plugins [here](/docs/plugins.md).
+Learn about plugins [here](/plugins.md).
 
 This is the simplest way of defining commands:
 

@@ -5,7 +5,7 @@ Plugins are a powerful way to encapsulate and share complex functionalities in a
 
 ## Definition
 
-Plugins can be used to define commands, learn more about [commands](/docs/commands.md) and the [configuration](/docs/configuration.md).
+Plugins can be used to define commands, learn more about [commands](/commands.md) and the [configuration](/configuration.md).
 
 There are multiple ways to write plugins:
 
