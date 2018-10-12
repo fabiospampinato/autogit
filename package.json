@@ -46,7 +46,7 @@
     "inquirer-helpers": "^1.3.2",
     "listr": "git://github.com/fabiospampinato/listr#d1249e5f7b64c95fb6940e9aff020646e2941183",
     "listr-compose": "^1.0.0",
-    "listr-update-renderer": "git://github.com/fabiospampinato/listr-update-renderer#22775a506529a528b430cf597a48f9d40e0f7c39",
+    "listr-update-renderer": "git://github.com/fabiospampinato/listr-update-renderer#a83ad7bd4f7b91032c62e6e586c60f22c551c95d",
     "lodash": "^4.17.11",
     "micromatch": "^3.1.10",
     "minimist": "^1.2.0",

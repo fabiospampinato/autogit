@@ -67,13 +67,14 @@ const Command = {
     const git = simpleGit ( repository ),
           status = await git.status (),
           name = path.basename ( repository ),
-          branch = ( await git.branchLocal () ).current,
+          localBranch = ( await git.branchLocal () ).current,
+          branch = localBranch ? ` ${localBranch}` : '',
           isDirty = !!status.not_added.length || !!status.conflicted.length || !!status.created.length || !!status.deleted.length || !!status.modified.length || !!status.renamed.length,
           dirty = isDirty ? '*': '',
           ahead = status.ahead ? ` ${status.ahead}↑` : '',
           behind = status.behind ? ` ${status.behind}↓` : '',
           repositoryPath = false ? ` ${tildify ( repository )}` : '', // Disabled
-          title = `${chalk.cyan ( name )} ${chalk.magenta ( branch )}${chalk.yellow ( dirty )}${chalk.yellow ( ahead )}${chalk.yellow ( behind )}${chalk.gray ( repositoryPath ) }`;
+          title = `${chalk.cyan ( name )}${chalk.magenta ( branch )}${chalk.yellow ( dirty )}${chalk.yellow ( ahead )}${chalk.yellow ( behind )}${chalk.gray ( repositoryPath ) }`;
 
     return title;
 

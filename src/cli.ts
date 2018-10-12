@@ -30,7 +30,7 @@ async function CLI () {
 
     command.option ( '--include <glob>', 'Only include repositories matching this glob', app.REPEATABLE, '**/*' )
            .option ( '--exclude <glob>', 'Exclude repositories matching this glob', app.REPEATABLE, '**/.*, ...' )
-           .option ( '--pick', 'Manually pick repositories' )
+           .option ( '--pick', 'Manually pick repositories', undefined, false )
            .option ( '--dry', 'Simulate the command', undefined, false )
            .option ( '--no-dry', 'Don\'t simulate the command', undefined, true )
            .option ( '--no-verbose', 'Disable verbose mode', undefined, false );
