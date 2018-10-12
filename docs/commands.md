@@ -51,8 +51,8 @@ module.exports = { // Configuration
   commands: {
     shell: {
       description: 'Execute a plain shell command', // This description will be displayed next to the command name when appropriate
-      enabled: ( repoPath, ctx ) => true, // If it returns false this command will be disabled for the current repository
-      skip: ( repoPath, ctx ) => false, // If it returns false this command will be skipped for the current repository
+      enabled: ( repoPath, ctx, task ) => true, // If it returns false this command will be disabled for the current repository
+      skip: ( repoPath, ctx, task ) => false, // If it returns false this command will be skipped for the current repository
       args: [ // Array of accepted arguments
         ['<command>', 'Shell command to execute'] // Array of arguments to pass to Caporal's `argument` method
       ],

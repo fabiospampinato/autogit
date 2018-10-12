@@ -7,6 +7,7 @@ import * as Listr from 'listr';
 import compose from 'listr-compose';
 import * as path from 'path';
 import * as simpleGit from 'simple-git/promise';
+import * as stripAnsi from 'strip-ansi';
 import * as tildify from 'tildify';
 import Config from './config';
 import Plugin from './plugin';
@@ -30,10 +31,34 @@ const Command = {
 
     return Utils.listr.patch ( new Listr ([{
       title: await Command.getTitle ( repository ),
-      enabled: command.enabled ? ctx => command.enabled ( repository, ctx ) : _.constant ( true ),
-      skip: command.skip ? ctx => command.skip ( repository, ctx ) : _.constant ( false ),
+      enabled: await Command.getEnabled ( repository, command ),
+      skip: await Command.getSkip ( repository, command ),
       task: () => Utils.listr.patch ( compose ( ...plugins ) )
     }]));
+
+  },
+
+  async getEnabled ( repository, command ) {
+
+    if ( !command.enabled ) return _.constant ( true );
+
+    return async function enabled ( ctx, task ) {
+      const enabled = command.enabled ( repository, ctx, task );
+      if ( enabled !== true ) {
+        task.title = chalk.dim ( stripAnsi ( task.title ) );
+      }
+      return enabled;
+    };
+
+  },
+
+  async getSkip ( repository, command ) {
+
+    if ( !command.skip ) return _.constant ( false );
+
+    return function skip ( ctx, task ) {
+      return command.skip ( repository, ctx, task );
+    };
 
   },
 
