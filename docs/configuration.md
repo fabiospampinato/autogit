@@ -13,6 +13,7 @@ const push = require ( 'autogit-plugin-push' );
 module.exports = {
   dry: true, // Enable dry mode by default, where plugins only simulate doing the work
   exitOnError: true, // Exit at the first error thrown
+  parallel: 1, // Maximum number of commands to run in parallel
   pick: true, // Always manually pick repositories
   verbose: false, // Disable verbose output by default
   commands: { // Your custom commands

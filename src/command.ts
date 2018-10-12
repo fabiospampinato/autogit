@@ -3,7 +3,6 @@
 
 import * as _ from 'lodash';
 import chalk from 'chalk';
-import * as Listr from 'listr';
 import compose from 'listr-compose';
 import * as path from 'path';
 import * as simpleGit from 'simple-git/promise';
@@ -29,12 +28,12 @@ const Command = {
 
     plugins = plugins.map ( plugin => Plugin.parse ( plugin, repository ) );
 
-    return Utils.listr.patch ( new Listr ([{
+    return {
       title: await Command.getTitle ( repository ),
       enabled: await Command.getEnabled ( repository, command ),
       skip: await Command.getSkip ( repository, command ),
       task: () => Utils.listr.patch ( compose ( ...plugins ) )
-    }]));
+    };
 
   },
 

@@ -30,6 +30,7 @@ async function CLI () {
 
     command.option ( '--include <glob>', 'Only include repositories matching this glob', app.REPEATABLE, '**/*' )
            .option ( '--exclude <glob>', 'Exclude repositories matching this glob', app.REPEATABLE, '**/.*, ...' )
+           .option ( '--parallel [number]', 'Maximum number of commands to run in parallel', undefined, 1 )
            .option ( '--pick', 'Manually pick repositories', undefined, false )
            .option ( '--dry', 'Simulate the command', undefined, false )
            .option ( '--no-dry', 'Don\'t simulate the command', undefined, true )
@@ -81,7 +82,8 @@ async function CLI () {
 
   const command = app['_defaultCommand'];
   const helpLines = [
-    `autogit shell 'pwd'`,
+    `autogit shell pwd`,
+    `autogit shell 'pwd && sleep 1' --parallel 5`,
     `autogit my-command ${chalk.green ( '--dry' )}`,
     `autogit my-command ${chalk.green ( '--include' )} ${chalk.blue ( 'vscode-*' )} ${chalk.green ( '--no-verbose' )}`,
   ];

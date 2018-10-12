@@ -52,6 +52,7 @@ const Config = {
       return {
         dry: false,
         exitOnError: false,
+        parallel: 1,
         pick: false,
         verbose: true,
         commands: {
@@ -99,10 +100,11 @@ const Config = {
 
     dynamic () {
 
-      const {dry, v, verbose, include, exclude, pick} = argv;
+      const {dry, v, verbose, include, exclude, parallel, pick} = argv;
 
       return {
         dry,
+        parallel: _.isNumber ( parallel ) ? parallel : 1,
         pick,
         verbose: [verbose, v].find ( _.isBoolean ),
         repositories: {

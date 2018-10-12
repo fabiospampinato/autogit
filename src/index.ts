@@ -1,10 +1,13 @@
 
 /* IMPORT */
 
+import * as _ from 'lodash';
+import * as Listr from 'listr';
 import Config from './config';
-import Command from './command';
+import Commands from './commands';
 import Prompt from './prompt';
 import fetchRepositories from './repositories';
+import Utils from './utils';
 
 /* AUTOGIT */
 
@@ -16,13 +19,16 @@ async function autogit ( commandName?, repositories? ) {
 
   }
 
-  for ( let repository of repositories ) {
+  const commands = await Commands.get ( commandName, repositories ),
+        chunks = _.chunk ( commands, Config.parallel );
 
-    const command = await Command.get ( commandName, repository );
+  for ( let chunk of chunks ) {
+
+    const listr = Utils.listr.patch ( new Listr ( chunk, { concurrent: Infinity, exitOnError: false } ) );
 
     try {
 
-      await command.run ();
+      await listr.run ();
 
     } catch ( err ) {
 
