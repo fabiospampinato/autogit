@@ -51,6 +51,7 @@ const Config = {
 
       return {
         dry: false,
+        exitOnError: false,
         verbose: true,
         commands: {
           status,

@@ -1,6 +1,7 @@
 
 /* IMPORT */
 
+import Config from './config';
 import Command from './command';
 import fetchRepositories from './repositories';
 
@@ -20,7 +21,7 @@ async function autogit ( commandName?, repositories? ) {
 
     } catch ( err ) {
 
-      break;
+      if ( Config.exitOnError ) break;
 
     }
 
