@@ -32,12 +32,6 @@ const Prompt = {
 
   },
 
-  async repositoriesAll () {
-
-    return await ask.yesNo ( 'Use all repositories?' );
-
-  },
-
   async repositories ( repositories? ) {
 
     if ( !repositories ) repositories = await fetchRepositories ();

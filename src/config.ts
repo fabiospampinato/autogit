@@ -52,6 +52,7 @@ const Config = {
       return {
         dry: false,
         exitOnError: false,
+        pick: false,
         verbose: true,
         commands: {
           status,
@@ -98,10 +99,11 @@ const Config = {
 
     dynamic () {
 
-      const {dry, v, verbose, include, exclude} = argv;
+      const {dry, v, verbose, include, exclude, pick} = argv;
 
       return {
         dry,
+        pick,
         verbose: [verbose, v].find ( _.isBoolean ),
         repositories: {
           include: _.isString ( include ) ? _.castArray ( include ) : include,

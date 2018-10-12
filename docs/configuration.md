@@ -13,6 +13,7 @@ const push = require ( 'autogit-plugin-push' );
 module.exports = {
   dry: true, // Enable dry mode by default, where plugins only simulate doing the work
   exitOnError: true, // Exit at the first error thrown
+  pick: true, // Always manually pick repositories
   verbose: false, // Disable verbose output by default
   commands: { // Your custom commands
     'github-sync': githubSync ({ token: 'MY_GITHUB_TOKEN' }),
