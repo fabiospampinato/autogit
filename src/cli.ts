@@ -28,9 +28,9 @@ async function CLI () {
 
   function setDefaultOptions ( command ) {
 
-    command.option ( '--include <glob>', 'Only include repositories matching this glob', app.REPEATABLE, '**/*' )
-           .option ( '--exclude <glob>', 'Exclude repositories matching this glob', app.REPEATABLE, '**/.*, ...' )
-           .option ( '--parallel [number]', 'Maximum number of commands to run in parallel', undefined, 1 )
+    command.option ( '--include, -i <glob>', 'Only include repositories matching this glob', app.REPEATABLE, '**/*' )
+           .option ( '--exclude, -e <glob>', 'Exclude repositories matching this glob', app.REPEATABLE, '**/.*, ...' )
+           .option ( '--parallel, -p [number]', 'Maximum number of commands to run in parallel', app.INT, 1 )
            .option ( '--pick', 'Manually pick repositories', undefined, false )
            .option ( '--dry', 'Simulate the command', undefined, false )
            .option ( '--no-dry', 'Don\'t simulate the command', undefined, true )

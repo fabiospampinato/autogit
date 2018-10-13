@@ -100,16 +100,16 @@ const Config = {
 
     dynamic () {
 
-      const {dry, v, verbose, include, exclude, parallel, pick} = argv;
+      const {dry, v, verbose, i, include, e, exclude, p, parallel, pick} = argv;
 
       return {
         dry,
-        parallel: _.isNumber ( parallel ) ? parallel : 1,
+        parallel: [parallel, p].find ( _.isNumber ),
         pick,
         verbose: [verbose, v].find ( _.isBoolean ),
         repositories: {
-          include: _.isString ( include ) ? _.castArray ( include ) : include,
-          exclude: _.isString ( exclude ) ? _.castArray ( exclude ) : exclude
+          include: [include, i].find ( x => _.isString ( x ) || _.isArray ( x ) ),
+          exclude: [exclude, e].find ( x => _.isString ( x ) || _.isArray ( x ) )
         }
       };
 
