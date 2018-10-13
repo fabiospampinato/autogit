@@ -1,4 +1,3 @@
 
-☐ spawn binary if the shell command has no spaces
 ☐ update dependencies
 ☐ maybe bundle with webpack to improve startup times

@@ -41,8 +41,19 @@ const Plugin = {
       title: `shell ${chalk.gray ( plugin.replace ( /\n/g, '\\n' ) )}`,
       skip: () => Config.dry,
       task: async ( ctx, task ) => {
-        const {stdout} = await execa.shell ( `${plugin} && exit 0`, { cwd: repository } );
-        task.output = stdout;
+
+        const hasArguments = /\s/.test ( plugin );
+
+        if ( hasArguments ) {
+
+          task.output = ( await execa.shell ( `${plugin} && exit 0`, { cwd: repository } ) ).stdout;
+
+        } else {
+
+          task.output = ( await execa ( plugin, { cwd: repository } ) ).stdout;
+
+        }
+
       }
     }]));
 
