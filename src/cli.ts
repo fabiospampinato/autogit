@@ -83,7 +83,7 @@ async function CLI () {
   const command = app['_defaultCommand'];
   const helpLines = [
     `autogit shell pwd`,
-    `autogit shell 'pwd && sleep 1' --parallel 5`,
+    `autogit shell 'pwd && sleep 1' ${chalk.green ( '--parallel' )} ${chalk.blue ( '5' )}`,
     `autogit my-command ${chalk.green ( '--dry' )}`,
     `autogit my-command ${chalk.green ( '--include' )} ${chalk.blue ( 'vscode-*' )} ${chalk.green ( '--no-verbose' )}`,
   ];
