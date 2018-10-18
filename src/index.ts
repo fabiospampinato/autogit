@@ -24,7 +24,7 @@ async function autogit ( commandName?, repositories? ) {
 
   for ( let chunk of chunks ) {
 
-    const listr = Utils.listr.patch ( new Listr ( chunk, { concurrent: Infinity, exitOnError: false } ) );
+    const listr = Utils.listr.patch ( new Listr ( chunk, { concurrent: Infinity, exitOnError: true } ) ); // Beware of https://github.com/SamVerschueren/listr/issues/47
 
     try {
 
