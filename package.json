@@ -9,8 +9,7 @@
     "clean": "rimraf dist",
     "compile": "tsc --skipLibCheck",
     "compile:watch": "tsc --skipLibCheck --watch",
-    "lint": "tslint \"src/**/*.ts*\" --force",
-    "prepublishOnly": "npm run clean && npm run lint && npm run compile",
+    "prepublishOnly": "npm run clean && npm run compile",
     "postpublish": "npm run docs:release",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
@@ -64,7 +63,6 @@
     "@types/node": "^10.11.7",
     "push-dir": "^0.4.1",
     "rimraf": "^2.6.2",
-    "tslint": "^4.4.2",
     "typescript": "^3.0.3",
     "vuepress": "^0.14.4"
   }
