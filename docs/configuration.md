@@ -56,4 +56,4 @@ module.exports = {
 
 Some of these settings can be overridden at runtime, see `autogit --help` to learn more.
 
-Learn more about [commands](/commands.md) and [plugins](/plugins.md).
+Learn more about [commands](commands.md) and [plugins](plugins.md).
