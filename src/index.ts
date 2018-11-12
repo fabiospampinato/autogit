@@ -42,4 +42,4 @@ async function autogit ( commandName?, repositories? ) {
 
 /* EXPORT */
 
-export = Object.assign ( autogit, { default: autogit } );
+export default autogit;

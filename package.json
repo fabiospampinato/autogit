@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
-    "compile": "tsc --skipLibCheck",
+    "compile": "tsc --skipLibCheck && tstei",
     "compile:watch": "tsc --skipLibCheck --watch",
     "prepublishOnly": "npm run clean && npm run compile",
     "postpublish": "npm run docs:release",
@@ -36,8 +36,8 @@
     "plugins"
   ],
   "dependencies": {
-    "autogit-command-shell": "^1.0.2",
-    "autogit-command-status": "^1.0.0",
+    "autogit-command-shell": "^1.0.3",
+    "autogit-command-status": "^1.0.1",
     "caporal": "git://github.com/fabiospampinato/Caporal.js#cf0f5eeefb2e04cc07798bf4a45d6bda5e2a2f63",
     "chalk": "^2.4.1",
     "conf-merge": "^1.0.0",
@@ -64,6 +64,7 @@
     "push-dir": "^0.4.1",
     "rimraf": "^2.6.2",
     "typescript": "^3.0.3",
+    "typescript-transform-export-interop": "^1.0.1",
     "vuepress": "^0.14.4"
   }
 }
