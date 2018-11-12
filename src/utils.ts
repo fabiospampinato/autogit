@@ -17,7 +17,7 @@ const Utils = {
 
     console.error ( chalk.red ( message ) );
 
-    process.exit ( 0 );
+    process.exit ( 1 );
 
   },
 
