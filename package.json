@@ -40,7 +40,6 @@
     "autogit-command-status": "^1.0.1",
     "caporal": "git://github.com/fabiospampinato/Caporal.js#cf0f5eeefb2e04cc07798bf4a45d6bda5e2a2f63",
     "chalk": "^2.4.1",
-    "conf-merge": "^1.0.0",
     "execa": "^1.0.0",
     "inquirer-helpers": "^1.3.2",
     "listr": "git://github.com/fabiospampinato/listr#d1249e5f7b64c95fb6940e9aff020646e2941183",

@@ -2,7 +2,6 @@
 /* IMPORT */
 
 import * as _ from 'lodash';
-import merge from 'conf-merge';
 import * as minimist from 'minimist';
 import * as os from 'os';
 import * as path from 'path';
@@ -19,13 +18,14 @@ const Config = {
   normalize ( config ) {
 
     const normalizeGlob = glob => /^(\*|\/)/.test ( glob ) ? glob : `**/${glob}`;
+    const filterGloblAll = glob => glob !== '**/*';
 
     config.verbose = config.verbose || config.dry;
     config.repositories.roots = _.castArray ( config.repositories.roots ).map ( untildify );
     config.repositories.include = _.castArray ( config.repositories.include ).map ( normalizeGlob );
     config.repositories.exclude = _.castArray ( config.repositories.exclude ).map ( normalizeGlob );
 
-    if ( config.repositories.include.length > 1 ) config.repositories.include = config.repositories.include.slice ( 1 );
+    if ( config.repositories.include.length > 1 ) config.repositories.include = config.repositories.include.filter ( filterGloblAll );
 
     return config;
 
@@ -43,7 +43,17 @@ const Config = {
 
     all () {
 
-      return merge ( Config.get.defaults (), Config.get.local (), Config.get.dynamic () );
+      const castArray = x => _.castArray ( x || [] );
+
+      const configs = [Config.get.defaults (), Config.get.local (), Config.get.dynamic ()];
+
+      return _.mergeWith ( ...configs, ( prev, next ) => {
+
+        if ( !_.isArray ( prev ) && !_.isArray ( next ) ) return;
+
+        return castArray ( prev ).concat ( castArray ( next ) );
+
+      });
 
     },
 
