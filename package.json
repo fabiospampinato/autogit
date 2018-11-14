@@ -1,5 +1,5 @@
 {
-  "name": "@fabiospampinato/autogit",
+  "name": "autogit",
   "description": "Define commands, using plugins, to execute across all your repositories.",
   "version": "1.2.4",
   "bin": "dist/bin/index.js",

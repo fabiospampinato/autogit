@@ -15,7 +15,7 @@ Autogit allows you to automate many tedious tasks, here are some practical tasks
 ## Install
 
 ```sh
-npm install -g @fabiospampinato/autogit
+npm install -g autogit
 ```
 
 ## Usage
