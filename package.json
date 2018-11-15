@@ -36,6 +36,7 @@
     "plugins"
   ],
   "dependencies": {
+    "@types/node": "^10.12.8",
     "autogit-command-shell": "^1.0.3",
     "autogit-command-status": "^1.0.1",
     "caporal": "git://github.com/fabiospampinato/Caporal.js#cf0f5eeefb2e04cc07798bf4a45d6bda5e2a2f63",
@@ -59,7 +60,6 @@
     "walker": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^10.11.7",
     "push-dir": "^0.4.1",
     "rimraf": "^2.6.2",
     "typescript": "^3.0.3",
