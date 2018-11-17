@@ -23,13 +23,13 @@ npm install -g autogit
 #### Wizard
 
 <p align="center">
-	<img src="docs/resources/demo/wizard.gif" alt="Wizard" style="width:816px">
+  <img src="docs/resources/demo/wizard.gif" alt="Wizard" style="width:816px">
 </p>
 
 #### Command
 
 <p align="center">
-	<img src="docs/resources/demo/github_sync.gif" alt="GitHub Sync" style="width:816px">
+  <img src="docs/resources/demo/github_sync.gif" alt="GitHub Sync" style="width:816px">
 </p>
 
 #### Custom Commands
