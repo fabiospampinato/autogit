@@ -47,7 +47,7 @@ const Config = {
 
       const configs = [Config.get.defaults (), Config.get.local (), Config.get.dynamic ()];
 
-      return _.mergeWith ( ...configs, ( prev, next ) => {
+      return _.mergeWith ( {}, ...configs, ( prev, next ) => {
 
         if ( !_.isArray ( prev ) && !_.isArray ( next ) ) return;
 
