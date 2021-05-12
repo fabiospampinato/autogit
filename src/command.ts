@@ -2,10 +2,10 @@
 /* IMPORT */
 
 import * as _ from 'lodash';
-import chalk from 'chalk';
 import compose from 'listr-compose';
 import * as path from 'path';
 import * as simpleGit from 'simple-git/promise';
+import {color} from 'specialist';
 import * as stripAnsi from 'strip-ansi';
 import * as tildify from 'tildify';
 import Config from './config';
@@ -20,11 +20,11 @@ const Command = {
 
     const command = Config.commands[name];
 
-    if ( !command ) return Utils.throw ( `There's no command named "${chalk.bold ( name )}"` );
+    if ( !command ) return Utils.throw ( `There's no command named "${color.bold ( name )}"` );
 
     let plugins = _.isArray ( command ) ? command : command.plugins;
 
-    if ( !_.isArray ( plugins ) ) return Utils.throw ( `The "${chalk.bold ( name )}" command doesn't define any plugins` );
+    if ( !_.isArray ( plugins ) ) return Utils.throw ( `The "${color.bold ( name )}" command doesn't define any plugins` );
 
     plugins = plugins.map ( plugin => Plugin.parse ( plugin, repository ) );
 
@@ -44,7 +44,7 @@ const Command = {
     return async function enabled ( ctx, task ) {
       const enabled = command.enabled ( repository, ctx, task );
       if ( enabled !== true ) {
-        task.title = chalk.dim ( stripAnsi ( task.title ) );
+        task.title = color.dim ( stripAnsi ( task.title ) );
       }
       return enabled;
     };
@@ -73,7 +73,7 @@ const Command = {
           ahead = status.ahead ? ` ${status.ahead}↑` : '',
           behind = status.behind ? ` ${status.behind}↓` : '',
           repositoryPath = false ? ` ${tildify ( repository )}` : '', // Disabled
-          title = `${chalk.cyan ( name )}${chalk.magenta ( branch )}${chalk.yellow ( dirty )}${chalk.yellow ( ahead )}${chalk.yellow ( behind )}${chalk.gray ( repositoryPath ) }`;
+          title = `${color.cyan ( name )}${color.magenta ( branch )}${color.yellow ( dirty )}${color.yellow ( ahead )}${color.yellow ( behind )}${color.gray ( repositoryPath ) }`;
 
     return title;
 

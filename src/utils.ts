@@ -1,11 +1,11 @@
 
 /* IMPORT */
 
-import chalk from 'chalk';
 import * as fs from 'fs';
 import * as micromatch from 'micromatch';
 import * as path from 'path';
 import * as pify from 'pify';
+import {color} from 'specialist';
 import * as listrRenderer from 'listr-update-renderer';
 import Config from './config';
 
@@ -15,7 +15,7 @@ const Utils = {
 
   throw ( message ) {
 
-    console.error ( chalk.red ( message ) );
+    console.error ( color.red ( message ) );
 
     process.exit ( 1 );
 

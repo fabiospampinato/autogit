@@ -3,9 +3,8 @@
 
 import * as _ from 'lodash';
 import * as Caporal from 'caporal';
-import chalk from 'chalk';
-import * as readPkg from 'read-pkg-up';
-import * as updateNotifier from 'update-notifier';
+import {color, updater} from 'specialist';
+import {name, version} from '../package.json';
 import Config from './config';
 import wizard from './wizard';
 import autogit from '.';
@@ -18,11 +17,9 @@ async function CLI () {
 
   /* APP */
 
-  const {pkg} = await readPkg ({ cwd: __dirname });
+  updater ({ name, version });
 
-  updateNotifier ({ pkg }).notify ();
-
-  const app = caporal.version ( pkg.version );
+  const app = caporal.version ( version );
 
   /* SET DEFAULT OPTIONS */
 
@@ -83,9 +80,9 @@ async function CLI () {
   const command = app['_defaultCommand'];
   const helpLines = [
     `autogit shell pwd`,
-    `autogit shell 'pwd && sleep 1' ${chalk.green ( '--parallel' )} ${chalk.blue ( '5' )}`,
-    `autogit my-command ${chalk.green ( '--dry' )}`,
-    `autogit my-command ${chalk.green ( '--include' )} ${chalk.blue ( 'vscode-*' )} ${chalk.green ( '--no-verbose' )}`,
+    `autogit shell 'pwd && sleep 1' ${color.green ( '--parallel' )} ${color.blue ( '5' )}`,
+    `autogit my-command ${color.green ( '--dry' )}`,
+    `autogit my-command ${color.green ( '--include' )} ${color.blue ( 'vscode-*' )} ${color.green ( '--no-verbose' )}`,
   ];
 
   command.help ( helpLines.join ( '\n' ), { name: 'USAGE - ADVANCED' } );

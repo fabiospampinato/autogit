@@ -2,9 +2,9 @@
   "name": "autogit",
   "description": "Define commands, using plugins, to execute across all your repositories.",
   "version": "1.2.6",
-  "bin": "dist/bin/index.js",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "bin": "dist/src/bin/index.js",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
     "compile": "tsc --skipLibCheck && tstei",
@@ -36,11 +36,9 @@
     "plugins"
   ],
   "dependencies": {
-    "@types/node": "^10.12.8",
     "autogit-command-shell": "^1.0.3",
     "autogit-command-status": "^1.0.1",
     "caporal": "git://github.com/fabiospampinato/Caporal.js#cf0f5eeefb2e04cc07798bf4a45d6bda5e2a2f63",
-    "chalk": "^2.4.1",
     "execa": "^1.0.0",
     "inquirer-helpers": "^1.3.2",
     "listr": "git://github.com/fabiospampinato/listr#d1249e5f7b64c95fb6940e9aff020646e2941183",
@@ -51,15 +49,15 @@
     "minimist": "^1.2.0",
     "pify": "^4.0.0",
     "plist": "^3.0.1",
-    "read-pkg-up": "^4.0.0",
     "simple-git": "^1.105.0",
+    "specialist": "^0.3.0",
     "strip-ansi": "^5.0.0",
     "tildify": "^1.2.0",
     "untildify": "^3.0.3",
-    "update-notifier": "^2.5.0",
     "walker": "^1.0.7"
   },
   "devDependencies": {
+    "@types/node": "^10.12.8",
     "push-dir": "^0.4.1",
     "rimraf": "^2.6.2",
     "typescript": "^3.0.3",

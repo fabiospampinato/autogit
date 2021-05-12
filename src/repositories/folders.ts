@@ -2,8 +2,8 @@
 /* IMPORT */
 
 import * as _ from 'lodash';
-import chalk from 'chalk';
 import * as path from 'path';
+import {color} from 'specialist';
 import * as walker from 'walker';
 import Utils from '../utils';
 
@@ -19,7 +19,7 @@ async function fetchRepositoriesFolders ( roots: string[], depth: number, includ
 
     if ( Utils.folder.exists ( root ) ) continue;
 
-    Utils.throw ( `Directory "${chalk.bold ( root )}" doesn't exist` );
+    Utils.throw ( `Directory "${color.bold ( root )}" doesn't exist` );
 
     return [];
 

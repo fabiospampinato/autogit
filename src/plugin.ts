@@ -2,9 +2,9 @@
 /* IMPORT */
 
 import * as _ from 'lodash';
-import chalk from 'chalk';
 import * as execa from 'execa';
 import * as Listr from 'listr';
+import {color} from 'specialist';
 import Config from './config';
 import Utils from './utils';
 
@@ -20,7 +20,7 @@ const Plugin = {
 
     if ( _.isString ( plugin ) ) return Plugin.parseString ( plugin, repository );
 
-    Utils.throw ( `Unsupported plugin type "${chalk.bold ( typeof plugin )}"` );
+    Utils.throw ( `Unsupported plugin type "${color.bold ( typeof plugin )}"` );
 
   },
 
@@ -38,7 +38,7 @@ const Plugin = {
   parseString ( plugin: string, repository: string ) {
 
     return Utils.listr.patch ( new Listr ([{
-      title: `shell ${chalk.gray ( plugin.replace ( /\n/g, '\\n' ) )}`,
+      title: `shell ${color.gray ( plugin.replace ( /\n/g, '\\n' ) )}`,
       skip: () => Config.dry,
       task: async ( ctx, task ) => {
 

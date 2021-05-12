@@ -3,8 +3,8 @@
 
 import * as _ from 'lodash';
 import ask from 'inquirer-helpers';
-import chalk from 'chalk';
 import * as path from 'path';
+import {color} from 'specialist';
 import * as tildify from 'tildify';
 import Config from './config';
 import fetchRepositories from './repositories';
@@ -22,7 +22,7 @@ const Prompt = {
 
     const list = commands.map ( command => ({
       value: command,
-      name: `${command} ${chalk.gray ( Config.commands[command].description || '' )}`,
+      name: `${command} ${color.gray ( Config.commands[command].description || '' )}`,
       short: command
     }));
 
@@ -40,7 +40,7 @@ const Prompt = {
 
     const list = repositories.map ( repository => ({
       value: repository,
-      name: `${path.basename ( repository )} ${chalk.gray ( tildify ( repository ) )}`,
+      name: `${path.basename ( repository )} ${color.gray ( tildify ( repository ) )}`,
       short: path.basename ( repository )
     }));
 
