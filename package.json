@@ -1,7 +1,7 @@
 {
   "name": "autogit",
   "description": "Define commands, using plugins, to execute across all your repositories.",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "bin": "dist/src/bin/index.js",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
